@@ -1,0 +1,343 @@
+const ITEMS = [
+  {
+    "id": 1,
+    "text": "Sumbangan Tunai Rahmah / Sumbangan Asas Rahmah ↑RM16 Bilion",
+    "clue": "Cari kedai bantuan keperluan asas.",
+    "rect": [
+      13,
+      40,
+      8,
+      13
+    ]
+  },
+  {
+    "id": 2,
+    "text": "Pembiayaan mikro ↑RM57 Bilion",
+    "clue": "Cari deretan premis perniagaan kecil.",
+    "rect": [
+      9,
+      34,
+      26,
+      20
+    ]
+  },
+  {
+    "id": 3,
+    "text": "TEKUN ↑RM1.3 Bilion",
+    "clue": "Cari kedai PMKS.",
+    "rect": [
+      26,
+      42,
+      6,
+      12
+    ]
+  },
+  {
+    "id": 4,
+    "text": "Cukai ↓1%",
+    "clue": "Cari premis PMKS dalam deretan kedai.",
+    "rect": [
+      26,
+      42,
+      6,
+      12
+    ]
+  },
+  {
+    "id": 5,
+    "text": "BSN ↑RM1.7 Bilion",
+    "clue": "Cari bank bersebelahan kedai PMKS.",
+    "rect": [
+      32,
+      44,
+      4,
+      10
+    ]
+  },
+  {
+    "id": 6,
+    "text": "AIM ↑RM3 Bilion",
+    "clue": "Cari kumpulan usahawan di tepi jalan.",
+    "rect": [
+      36,
+      47,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 7,
+    "text": "Peruntukan Semua Negeri Naik ↑",
+    "clue": "Cari menara jam condong.",
+    "rect": [
+      51,
+      24,
+      11,
+      25
+    ]
+  },
+  {
+    "id": 8,
+    "text": "Komuniti Angkat MADANI",
+    "clue": "Cari kawasan pangsapuri komuniti.",
+    "rect": [
+      62,
+      32,
+      20,
+      11
+    ]
+  },
+  {
+    "id": 9,
+    "text": "Pengecualian Duti Setem Rumah Pertama",
+    "clue": "Cari bangunan pangsapuri.",
+    "rect": [
+      62,
+      32,
+      20,
+      11
+    ]
+  },
+  {
+    "id": 10,
+    "text": "BUDI MADANI RON95 RM1.99 / BUDI MADANI DIESEL RM2.10",
+    "clue": "Cari stesen minyak.",
+    "rect": [
+      63,
+      42,
+      15,
+      7
+    ]
+  },
+  {
+    "id": 11,
+    "text": "Jualan RAHMAH ↑RM700 juta",
+    "clue": "Cari kedai RAHMAH.",
+    "rect": [
+      20,
+      41,
+      6,
+      13
+    ]
+  },
+  {
+    "id": 12,
+    "text": "Barang basah",
+    "clue": "Cari gerai sayur dan barang basah.",
+    "rect": [
+      13,
+      48,
+      7,
+      6
+    ]
+  },
+  {
+    "id": 13,
+    "text": "Geran Sejahtera MADANI",
+    "clue": "Cari peniaga berdekatan bank.",
+    "rect": [
+      30,
+      48,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 14,
+    "text": "e-Hailing ↑RM227",
+    "clue": "Cari kereta hijau.",
+    "rect": [
+      40,
+      48,
+      7,
+      6
+    ]
+  },
+  {
+    "id": 15,
+    "text": "Peningkatan Pendapatan p-Hailing ↑RM100",
+    "clue": "Cari penghantar motosikal hijau.",
+    "rect": [
+      50,
+      47,
+      5,
+      8
+    ]
+  },
+  {
+    "id": 16,
+    "text": "Cukai Jagaan Warga Emas ↓",
+    "clue": "Cari pasangan warga emas.",
+    "rect": [
+      66,
+      49,
+      6,
+      12
+    ]
+  },
+  {
+    "id": 17,
+    "text": "Pelepasan cukai ↑RM12,000 / Kadar cukai ↓1%",
+    "clue": "Cari lelaki berbaju biru di tengah.",
+    "rect": [
+      44,
+      55,
+      5,
+      12
+    ]
+  },
+  {
+    "id": 18,
+    "text": "Langganan AI Percuma",
+    "clue": "Cari graduan bertopi mortar.",
+    "rect": [
+      54,
+      54,
+      7,
+      11
+    ]
+  },
+  {
+    "id": 19,
+    "text": "Bakat MADANI RM30,000",
+    "clue": "Cari wanita memegang tablet.",
+    "rect": [
+      29,
+      55,
+      5,
+      19
+    ]
+  },
+  {
+    "id": 20,
+    "text": "Gaji Kehidupan Wajar ↑RM3,400",
+    "clue": "Cari lelaki bersut dan bertali leher.",
+    "rect": [
+      14,
+      53,
+      6,
+      20
+    ]
+  },
+  {
+    "id": 21,
+    "text": "Gaji Minimum ↑RM2,000",
+    "clue": "Cari pekerja mekanik dengan sepana.",
+    "rect": [
+      19,
+      54,
+      7,
+      20
+    ]
+  },
+  {
+    "id": 22,
+    "text": "Elaun Pelajar Tingkatan 6 RM2,500",
+    "clue": "Cari pelajar lelaki dengan beg galas.",
+    "rect": [
+      36,
+      54,
+      8,
+      14
+    ]
+  },
+  {
+    "id": 23,
+    "text": "Bantuan OKU ↑",
+    "clue": "Cari pengguna kerusi roda.",
+    "rect": [
+      62,
+      56,
+      5,
+      13
+    ]
+  },
+  {
+    "id": 24,
+    "text": "Sumbangan Asas Rahmah 2 X RM100",
+    "clue": "Cari ibu bertudung merah jambu di tengah.",
+    "rect": [
+      49,
+      57,
+      5,
+      10
+    ]
+  },
+  {
+    "id": 25,
+    "text": "Pelepasan Cukai Kasut Sukan",
+    "clue": "Cari lelaki berjoging.",
+    "rect": [
+      72,
+      51,
+      5,
+      18
+    ]
+  },
+  {
+    "id": 26,
+    "text": "IPG ↑RM3.30/kg",
+    "clue": "Cari penoreh getah di pokok.",
+    "rect": [
+      77,
+      57,
+      5,
+      13
+    ]
+  },
+  {
+    "id": 27,
+    "text": "Pengecualian Bayaran Balik PTPTN <RM2,500",
+    "clue": "Cari graduan berjubah.",
+    "rect": [
+      55,
+      65,
+      6,
+      21
+    ]
+  },
+  {
+    "id": 28,
+    "text": "Lesen Sampan Khas ↑20,000",
+    "clue": "Cari nelayan di dalam sampan.",
+    "rect": [
+      81,
+      66,
+      12,
+      10
+    ]
+  },
+  {
+    "id": 29,
+    "text": "Peningkatan Kadar Bantuan Awal Persekolahan ↑RM200",
+    "clue": "Cari dua murid sekolah di hadapan.",
+    "rect": [
+      46,
+      64,
+      11,
+      22
+    ]
+  },
+  {
+    "id": 30,
+    "text": "Pelepasan Cukai Haiwan Peliharaan",
+    "clue": "Cari dua ekor kucing.",
+    "rect": [
+      29,
+      74,
+      10,
+      8
+    ]
+  },
+  {
+    "id": 31,
+    "text": "Insentif Penuaian ↑RM100/hektar / Pembajakan ↑RM300/hektar",
+    "clue": "Cari pesawah menuai padi.",
+    "rect": [
+      73,
+      70,
+      9,
+      12
+    ]
+  }
+];
