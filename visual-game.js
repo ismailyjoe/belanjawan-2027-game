@@ -1,7 +1,7 @@
 'use strict';
 const $ = s => document.querySelector(s);
 const vp = $('#viewport'), scene = $('#scene'), art = $('#artwork');
-const W = 1437, H = 1094, ROUND_SECONDS = 180, TARGET_COUNT = 16;
+const W = 1437, H = 1094, ROUND_SECONDS = 120, TARGET_COUNT = 16;
 let round = [], previous = [], found = new Set(), selected = null;
 let phase = 'loading', startedAt = 0, finishedAt = 0, deadline = null;
 let scale = 1, x = 0, y = 0, ready = false, roundUntimed = false;
@@ -182,7 +182,7 @@ $('#answers').onclick=()=>{
   say(answersShown ? 'Nombor pada ilustrasi sepadan dengan nombor gambar sasaran.' : 'Cuba pusingan baharu untuk pilihan gambar seterusnya.');
 };
 $('#help').onclick=()=>showDialog('Cara bermain',
-  'Cari orang yang sepadan dengan 16 gambar sasaran dalam ilustrasi, kemudian ketik padanannya. Anda boleh mencari mana-mana sasaran, atau memilih satu gambar untuk menumpukan carian.\n\nSeret untuk bergerak. Cubit dua jari, gunakan roda tetikus atau butang + / − untuk zum. Tiada petunjuk lokasi diberikan.\n\nPemasa lalai ialah 3 minit. Pilih Tanpa had masa untuk pusingan tanpa kiraan undur. Empat tekaan salah dalam 5 saat akan menghentikan tekaan selama 2 saat. Pemasa terus berjalan semasa tetingkap ini dibuka.');
+  'Cari orang yang sepadan dengan 16 gambar sasaran dalam ilustrasi, kemudian ketik padanannya. Anda boleh mencari mana-mana sasaran, atau memilih satu gambar untuk menumpukan carian.\n\nSeret untuk bergerak. Cubit dua jari, gunakan roda tetikus atau butang + / − untuk zum. Tiada petunjuk lokasi diberikan.\n\nPemasa lalai ialah 2 minit. Pilih Tanpa had masa untuk pusingan tanpa kiraan undur. Empat tekaan salah dalam 5 saat akan menghentikan tekaan selama 2 saat. Pemasa terus berjalan semasa tetingkap ini dibuka.');
 // Keep an entire gesture ineligible for guesses after any pan or second contact.
 vp.addEventListener('pointerdown', e => {
   if (e.pointerType === 'mouse' && e.button !== 0) return;
@@ -253,7 +253,7 @@ async function readCount() { try {const r=await fetch(COUNTER_BASE+'cari_kenali.
 function initialise() {
   if(ready) return; ready=true; phase='ready'; fit();
   showDialog('Mata tajam, misi baharu.',
-    'Cari 16 orang dalam ilustrasi Belanjawan. Perhatikan pakaian, aksesori dan gaya setiap orang. Zum untuk melihat lebih dekat.\n\nMasa anda: 3 minit. Aktifkan pilihan di bawah jika mahu bermain tanpa had masa.',
+    'Cari 16 orang dalam ilustrasi Belanjawan. Perhatikan pakaian, aksesori dan gaya setiap orang. Zum untuk melihat lebih dekat.\n\nMasa anda: 2 minit. Aktifkan pilihan di bawah jika mahu bermain tanpa had masa.',
     'Mula mencari →',start);
   const label=document.createElement('label'), option=document.createElement('input');
   option.type='checkbox'; option.checked=$('#untimed').checked; option.onchange=()=>{$('#untimed').checked=option.checked;};
