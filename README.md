@@ -8,7 +8,7 @@ Permainan carian visual dalam Bahasa Melayu. Padankan 16 gambar kecil dengan ora
 - Cari mana-mana sasaran, atau pilih satu kad gambar untuk menumpukan carian. Pemilihan kad tidak mendedahkan lokasi.
 - Kesemua 16 kad muat dalam grid 4 × 4. Panel berada di sisi pada desktop dan di atas pada telefon.
 - Seret untuk bergerak, cubit dua jari atau gunakan roda tetikus dan butang + / − untuk zum. Butang Muat skrin memulihkan paparan penuh.
-- Pemasa lalai satu minit; pilihan Tanpa had masa tersedia. Pertukaran tetapan masa memulakan pusingan baharu selepas pengesahan.
+- Pemasa lalai tiga minit; pilihan Tanpa had masa tersedia. Pertukaran tetapan masa memulakan pusingan baharu selepas pengesahan.
 - Empat tekaan salah dalam lima saat menghentikan tekaan selama 2.2 saat. Pemasa terus berjalan.
 - Selepas pusingan tamat, Lihat jawapan menandakan lokasi mengikut nombor kad. Main lagi memilih sasaran baharu.
 
