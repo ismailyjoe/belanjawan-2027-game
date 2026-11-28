@@ -4,7 +4,7 @@ Permainan carian visual dalam Bahasa Melayu. Padankan 16 gambar kecil dengan ora
 
 ## Cara bermain
 
-- Setiap pusingan memilih 16 sasaran daripada 39 pilihan yang disemak: empat watak besar, enam watak sederhana dan enam watak kecil. Subjek sama tidak dipilih dua kali dalam satu pusingan; pilihan tepat pusingan terdahulu diberi keutamaan lebih rendah.
+- Setiap pusingan memilih 16 sasaran daripada 49 pilihan yang disemak: empat watak besar, enam watak sederhana dan enam watak kecil. Subjek sama tidak dipilih dua kali dalam satu pusingan; pilihan tepat pusingan terdahulu diberi keutamaan lebih rendah.
 - Cari mana-mana sasaran, atau pilih satu kad gambar untuk menumpukan carian. Pemilihan kad tidak mendedahkan lokasi.
 - Kesemua 16 kad muat dalam grid 4 × 4. Panel berada di sisi pada desktop dan di atas pada telefon.
 - Seret untuk bergerak, cubit dua jari atau gunakan roda tetikus dan butang + / − untuk zum. Butang Muat skrin memulihkan paparan penuh.

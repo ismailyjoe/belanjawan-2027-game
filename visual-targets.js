@@ -43,6 +43,17 @@ const people = [
   ['path-backpacker', 'Pejalan kaki dengan beg galas kelabu', 'hard', [660,554,42,105], [671,564,22,67]],
   ['path-orange-hijab', 'Pejalan kaki bertudung jingga muda', 'hard', [692,564,28,93], [699,571,15,60]],
   ['path-mauve', 'Pejalan kaki berbaju ungu kelabu', 'hard', [962,565,27,59], [968,571,14,42]],
+  // More people along the market and tower paths
+  ["market-dark-apron","Peniaga dengan apron gelap","hard",[160,581,48,102],[168,590,19,52]],
+  ["market-lilac-shirt","Pengunjung pasar berbaju lilac","hard",[247,547,43,77],[259,558,20,44]],
+  ["market-black-songkok","Lelaki bersongkok di depan gerai","medium",[205,642,40,54],[217,650,21,31]],
+  ["market-blue-bag","Pengunjung berbaju biru dengan beg gelap","hard",[435,573,39,101],[445,583,19,68]],
+  ["seated-pink-shirt","Lelaki berbaju merah jambu di tepi laluan","hard",[533,591,36,49],[541,599,21,32]],
+  ["market-salmon-shirt","Pejalan kaki berbaju salmon","hard",[523,534,25,60],[528,541,15,40]],
+  ["tower-purple-shirt","Pengunjung berbaju ungu dekat menara","hard",[604,546,28,49],[610,552,15,33]],
+  ["shoulder-ride-adult","Lelaki membawa anak di bahu","medium",[905,572,55,100],[918,583,30,57]],
+  ["promenade-pink-shirt","Pengunjung berbaju merah jambu di laluan tepi laut","hard",[1071,550,25,53],[1076,557,14,38]],
+  ["tower-yellow-vest","Pengunjung berjaket kuning dekat menara","hard",[767,543,26,47],[773,550,14,32]],
 ];
 
 const TARGETS = people.map(([id, name, level, crop, hit]) => ({
