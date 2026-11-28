@@ -1,7 +1,7 @@
 'use strict';
 const $ = s => document.querySelector(s);
 const vp = $('#viewport'), scene = $('#scene'), art = $('#artwork');
-const W = 1437, H = 1095, ROUND_SECONDS = 120;
+const W = 1437, H = 1095, ROUND_SECONDS = 60, TARGET_COUNT = 16;
 let round = [], previous = [], found = new Set(), selected = null;
 let phase = 'loading', startedAt = 0, finishedAt = 0, deadline = null;
 let scale = 1, x = 0, y = 0, ready = false, roundUntimed = false;
@@ -18,7 +18,7 @@ const shuffle = items => {
 };
 function sampleTargets(last = []) {
   const chosen = [], groups = new Set();
-  for (const [level, count] of [['easy', 2], ['medium', 3], ['hard', 3]]) {
+  for (const [level, count] of [['easy', 4], ['medium', 6], ['hard', 6]]) {
     const pool = shuffle(TARGETS.filter(t => t.level === level));
     const ordered = [...pool.filter(t => !last.includes(t.id)), ...pool.filter(t => last.includes(t.id))];
     for (const item of ordered) {
@@ -50,7 +50,7 @@ function formatTime(seconds) {
   return `${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,'0')}`;
 }
 function renderTargets() {
-  $('#progress').textContent = `Dijumpai: ${found.size}/${round.length || 8}`;
+  $('#progress').textContent = `Dijumpai: ${found.size}/${round.length || TARGET_COUNT}`;
   $('#targets').replaceChildren(...round.map((item, i) => {
     const li = document.createElement('li'), button = document.createElement('button');
     button.type = 'button'; button.dataset.target = item.id;
@@ -117,7 +117,7 @@ function start() {
   startedAt = Date.now(); finishedAt = 0; roundUntimed = $('#untimed').checked;
   deadline = roundUntimed ? null : startedAt + ROUND_SECONDS*1000;
   wrongTimes = []; blockedUntil = 0; lastAttempt = -Infinity; pointers.clear(); gesture = null;
-  $('#answers').hidden = true; $('#answers').textContent = 'Lihat jawapan'; $('#round-label').textContent = 'Lapan gambar. Satu misi.';
+  $('#answers').hidden = true; $('#answers').textContent = 'Lihat jawapan'; $('#round-label').textContent = '16 gambar. Satu misi.';
   renderTargets(); renderMarkers(); fit(); tick();
   say('Cari mana-mana gambar sasaran. Zum untuk melihat butiran kecil.');
   budgetCount('cari_kenali');
@@ -129,10 +129,10 @@ function end(won) {
   $('#round-label').textContent = won ? 'Misi selesai!' : 'Pusingan tamat';
   $('#answers').hidden = false; renderTargets(); tick();
   const elapsed = formatTime(Math.floor((finishedAt-startedAt)/1000));
-  say(won ? 'Tahniah! Semua lapan gambar dijumpai.' : 'Masa tamat. Lihat jawapan atau cuba pusingan baharu.');
+  say(won ? 'Tahniah! Semua 16 gambar dijumpai.' : 'Masa tamat. Lihat jawapan atau cuba pusingan baharu.');
   showDialog(won ? 'Mata anda memang tajam!' : 'Masa tamat',
-    won ? 'Kesemua lapan watak dan objek telah dijumpai. Cuba pusingan seterusnya dengan pilihan gambar baharu.' : 'Masih ada gambar yang belum ditemui. Anda boleh semak lokasinya sebelum mencuba lagi.',
-    'Main lagi →',start,true,`Dijumpai: ${found.size}/8 · Masa: ${elapsed}`);
+    won ? 'Kesemua 16 watak dan objek telah dijumpai. Cuba pusingan seterusnya dengan pilihan gambar baharu.' : 'Masih ada gambar yang belum ditemui. Anda boleh semak lokasinya sebelum mencuba lagi.',
+    'Main lagi →',start,true,`Dijumpai: ${found.size}/${round.length} · Masa: ${elapsed}`);
 }
 function choose(px,py) {
   if (phase !== 'playing') return;
@@ -152,7 +152,7 @@ function choose(px,py) {
   found.add(item.id); selected = null; wrongTimes = [];
   const scroll = $('#targets').scrollLeft, top = $('#targets').scrollTop;
   renderTargets(); $('#targets').scrollLeft = scroll; $('#targets').scrollTop = top; renderMarkers();
-  say(`Tepat! ${found.size} daripada 8 gambar dijumpai.`);
+  say(`Tepat! ${found.size} daripada ${round.length} gambar dijumpai.`);
   if (found.size === round.length) end(true);
 }
 function tick() {
@@ -168,7 +168,7 @@ function tick() {
   else if (phase === 'expired') { $('#timer-label').textContent = 'MASA TAMAT'; $('#clock').textContent = '0:00'; }
 }
 $('#restart').onclick = () => {
-  if (phase === 'playing') showDialog('Mulakan pusingan baharu?','Kemajuan pusingan ini akan ditetapkan semula. Lapan gambar baharu akan dipilih.','Mula semula',start,true);
+  if (phase === 'playing') showDialog('Mulakan pusingan baharu?','Kemajuan pusingan ini akan ditetapkan semula. 16 gambar baharu akan dipilih.','Mula semula',start,true);
   else start();
 };
 $('#untimed').onchange = () => {
@@ -184,7 +184,7 @@ $('#answers').onclick=()=>{
   say(answersShown ? 'Nombor pada ilustrasi sepadan dengan nombor gambar sasaran.' : 'Cuba pusingan baharu untuk pilihan gambar seterusnya.');
 };
 $('#help').onclick=()=>showDialog('Cara bermain',
-  'Padankan lapan gambar kecil dengan watak atau objek dalam ilustrasi, kemudian ketik padanannya. Anda boleh mencari mana-mana sasaran, atau memilih satu gambar untuk menumpukan carian.\n\nSeret untuk bergerak. Cubit dua jari, gunakan roda tetikus atau butang + / − untuk zum. Panel gambar boleh ditatal. Tiada petunjuk lokasi diberikan.\n\nPemasa lalai ialah 2 minit. Pilih Tanpa had masa untuk pusingan tanpa kiraan undur. Empat tekaan salah dalam 5 saat akan menghentikan tekaan selama 2 saat. Pemasa terus berjalan semasa tetingkap ini dibuka.');
+  'Padankan 16 gambar kecil dengan watak atau objek dalam ilustrasi, kemudian ketik padanannya. Anda boleh mencari mana-mana sasaran, atau memilih satu gambar untuk menumpukan carian.\n\nSeret untuk bergerak. Cubit dua jari, gunakan roda tetikus atau butang + / − untuk zum. Panel gambar boleh ditatal. Tiada petunjuk lokasi diberikan.\n\nPemasa lalai ialah 1 minit. Pilih Tanpa had masa untuk pusingan tanpa kiraan undur. Empat tekaan salah dalam 5 saat akan menghentikan tekaan selama 2 saat. Pemasa terus berjalan semasa tetingkap ini dibuka.');
 // Keep an entire gesture ineligible for guesses after any pan or second contact.
 vp.addEventListener('pointerdown', e => {
   if (e.pointerType === 'mouse' && e.button !== 0) return;
@@ -255,7 +255,7 @@ async function readCount() { try {const r=await fetch(COUNTER_BASE+'cari_kenali.
 function initialise() {
   if(ready) return; ready=true; phase='ready'; fit();
   showDialog('Mata tajam, misi baharu.',
-    'Lapan gambar untuk dicari dalam ilustrasi Belanjawan. Teliti watak, objek dan butiran kecil. Zum untuk melihat lebih dekat.\n\nMasa anda: 2 minit. Aktifkan pilihan di bawah jika mahu bermain tanpa had masa.',
+    '16 gambar untuk dicari dalam ilustrasi Belanjawan. Teliti watak, objek dan butiran kecil. Zum untuk melihat lebih dekat.\n\nMasa anda: 1 minit. Aktifkan pilihan di bawah jika mahu bermain tanpa had masa.',
     'Mula mencari →',start);
   const label=document.createElement('label'), option=document.createElement('input');
   option.type='checkbox'; option.checked=$('#untimed').checked; option.onchange=()=>{$('#untimed').checked=option.checked;};

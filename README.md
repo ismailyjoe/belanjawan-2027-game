@@ -1,14 +1,14 @@
 # Cari & Kenali Belanjawan 2027
 
-Permainan carian visual dalam Bahasa Melayu. Padankan lapan gambar kecil dengan watak atau objek dalam ilustrasi, kemudian ketik padanannya.
+Permainan carian visual dalam Bahasa Melayu. Padankan 16 gambar kecil dengan watak atau objek dalam ilustrasi, kemudian ketik padanannya.
 
 ## Cara bermain
 
-- Setiap pusingan memilih lapan sasaran daripada 37 pilihan yang disemak: dua subjek besar, tiga objek sederhana dan tiga butiran kecil. Subjek sama tidak dipilih dua kali dalam satu pusingan; pilihan tepat pusingan terdahulu diberi keutamaan lebih rendah.
+- Setiap pusingan memilih 16 sasaran daripada 37 pilihan yang disemak: empat subjek besar, enam objek sederhana dan enam butiran kecil. Subjek sama tidak dipilih dua kali dalam satu pusingan; pilihan tepat pusingan terdahulu diberi keutamaan lebih rendah.
 - Cari mana-mana sasaran, atau pilih satu kad gambar untuk menumpukan carian. Pemilihan kad tidak mendedahkan lokasi.
 - Panel gambar berada di sisi pada desktop dan di atas pada telefon; ia tidak menutupi ilustrasi.
 - Seret untuk bergerak, cubit dua jari atau gunakan roda tetikus dan butang + / − untuk zum. Butang Muat skrin memulihkan paparan penuh.
-- Pemasa lalai dua minit; pilihan Tanpa had masa tersedia. Pertukaran tetapan masa memulakan pusingan baharu selepas pengesahan.
+- Pemasa lalai satu minit; pilihan Tanpa had masa tersedia. Pertukaran tetapan masa memulakan pusingan baharu selepas pengesahan.
 - Empat tekaan salah dalam lima saat menghentikan tekaan selama 2.2 saat. Pemasa terus berjalan.
 - Selepas pusingan tamat, Lihat jawapan menandakan lokasi mengikut nombor kad. Main lagi memilih sasaran baharu.
 
@@ -30,9 +30,9 @@ Ilustrasi permainan sedia ada ialah versi yang sebelum ini dibuang gelembung tek
 ## Pengesahan — 28 November 2026
 
 - Sintaks JavaScript dan batas koordinat 37 sasaran disemak.
-- 5,000 pilihan pusingan mengandungi lapan kumpulan subjek unik dengan campuran kesukaran 2/3/3.
-- Semakan logik meliputi kemenangan 8/8, pusingan baharu, sasaran terpilih, jeda tekaan salah, masa tamat, tanpa had masa serta sentuhan berganda/seretan/pembatalan tanpa tekaan tidak sengaja.
-- Semakan pelayar desktop: pusingan penuh 8/8, kemajuan, masa penyelesaian, jawapan, pusingan baharu, zum, seretan dan pertukaran pemasa.
+- 50,000 pilihan pusingan 16 sasaran disemak dengan campuran kesukaran 4/6/6 dan kumpulan subjek unik.
+- Semakan logik versi lapan sasaran terdahulu meliputi kemenangan 8/8, pusingan baharu, sasaran terpilih, jeda tekaan salah, masa tamat, tanpa had masa serta sentuhan berganda/seretan/pembatalan tanpa tekaan tidak sengaja.
+- Semakan pelayar desktop versi 8 sasaran terdahulu: pusingan penuh 8/8, kemajuan, masa penyelesaian, jawapan, pusingan baharu, zum, seretan dan pertukaran pemasa.
 - Susun atur diperiksa dalam bingkai pelayar 390 × 844, 320 × 568 dan 740 × 360.
 - Cubit pada peranti sentuh fizikal belum diuji.
 
@@ -41,3 +41,5 @@ Ilustrasi permainan sedia ada ialah versi yang sebelum ini dibuang gelembung tek
 GitHub Pages menggunakan cawangan `main`, direktori akar. Tiada pemasangan atau proses binaan diperlukan.
 
 © 2026 IBJ. All rights reserved. Made by IBJ.
+
+Kemas kini 16 sasaran / 60 saat disemak melalui sintaks, simulasi pemilihan sasaran dan nilai pemasa. Semakan pelayar baharu tidak tersedia dalam sesi kemas kini ini.
