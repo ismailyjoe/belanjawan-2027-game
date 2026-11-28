@@ -71,8 +71,7 @@ function renderTargets() {
     button.onclick = () => {
       if (phase !== 'playing' || found.has(item.id)) return;
       selected = selected === item.id ? null : item.id;
-      const scroll = $('#targets').scrollLeft, top = $('#targets').scrollTop;
-      renderTargets(); $('#targets').scrollLeft = scroll; $('#targets').scrollTop = top;
+      renderTargets();
       $('#targets').querySelector(`[data-target="${item.id}"]`).focus({preventScroll:true});
       say(selected ? `Cari padanan gambar ${i+1}. Ketik gambar ini semula untuk mencari mana-mana sasaran.` : 'Cari mana-mana gambar sasaran.');
     };
@@ -150,8 +149,7 @@ function choose(px,py) {
     return;
   }
   found.add(item.id); selected = null; wrongTimes = [];
-  const scroll = $('#targets').scrollLeft, top = $('#targets').scrollTop;
-  renderTargets(); $('#targets').scrollLeft = scroll; $('#targets').scrollTop = top; renderMarkers();
+  renderTargets(); renderMarkers();
   say(`Tepat! ${found.size} daripada ${round.length} gambar dijumpai.`);
   if (found.size === round.length) end(true);
 }
@@ -184,7 +182,7 @@ $('#answers').onclick=()=>{
   say(answersShown ? 'Nombor pada ilustrasi sepadan dengan nombor gambar sasaran.' : 'Cuba pusingan baharu untuk pilihan gambar seterusnya.');
 };
 $('#help').onclick=()=>showDialog('Cara bermain',
-  'Padankan 16 gambar kecil dengan watak atau objek dalam ilustrasi, kemudian ketik padanannya. Anda boleh mencari mana-mana sasaran, atau memilih satu gambar untuk menumpukan carian.\n\nSeret untuk bergerak. Cubit dua jari, gunakan roda tetikus atau butang + / − untuk zum. Panel gambar boleh ditatal. Tiada petunjuk lokasi diberikan.\n\nPemasa lalai ialah 1 minit. Pilih Tanpa had masa untuk pusingan tanpa kiraan undur. Empat tekaan salah dalam 5 saat akan menghentikan tekaan selama 2 saat. Pemasa terus berjalan semasa tetingkap ini dibuka.');
+  'Padankan 16 gambar kecil dengan watak atau objek dalam ilustrasi, kemudian ketik padanannya. Anda boleh mencari mana-mana sasaran, atau memilih satu gambar untuk menumpukan carian.\n\nSeret untuk bergerak. Cubit dua jari, gunakan roda tetikus atau butang + / − untuk zum. Tiada petunjuk lokasi diberikan.\n\nPemasa lalai ialah 1 minit. Pilih Tanpa had masa untuk pusingan tanpa kiraan undur. Empat tekaan salah dalam 5 saat akan menghentikan tekaan selama 2 saat. Pemasa terus berjalan semasa tetingkap ini dibuka.');
 // Keep an entire gesture ineligible for guesses after any pan or second contact.
 vp.addEventListener('pointerdown', e => {
   if (e.pointerType === 'mouse' && e.button !== 0) return;
